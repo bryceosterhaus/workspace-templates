@@ -1,19 +1,13 @@
 #!/bin/bash
 
-function main {
-	npx create-react-app ${PROMPTS_NAME}
+npx create-react-app ${PROMPTS_NAME}
 
-	clean_unnecessary_files
+rm -f public/favicon.ico public/logo* public/manifest.json public/robots.txt
 
-	sed -i -e "s|<div id=\"root\"></div>|<${PROMPTS_NAME} route=\"hello-world\"></${PROMPTS_NAME}>|g" public/index.html
-}
+cd src
 
-function clean_unnecessary_files {
-	rm -f public/favicon.ico public/logo* public/manifest.json public/robots.txt
+rm -f App* index* logo.svg reportWebVitals.js setupTests.js
 
-	cd src
+cd ..
 
-	rm -f App* index* logo.svg reportWebVitals.js setupTests.js
-
-	cd ..
-}
+sed -i -e "s|<div id=\"root\"></div>|<${PROMPTS_NAME} route=\"hello-world\"></${PROMPTS_NAME}>|g" public/index.html
