@@ -44,3 +44,30 @@ Runs from top -> down
 Workflow for adding a new Template:
 - User could copy/paste existing template and then modify for their specific need. For example, copy/paste react template and then add jest config.
 - User could add an entirely new Template structure with their own prompts.
+
+Technical Details:
+- Doesn't matter what template language it is, so long as it is simple
+- Branching for a single template might be difficult, for example adding a js/ts prompt for a react custom element would require a lot of pre/post scripting.
+
+
+**Possible file structure for branching different options?**
+```
+├── custom-element
+│   ├── [framework-react]
+|   │   ├── [language-javascript]
+|   |   │   └── src
+|   |   |   │   └── index.js
+|   |   │   └── pre.sh
+|   │   ├── [language-typescript]
+|   |   │   └── src
+|   |   |   │   └── index.js
+|   |   │   └── pre.sh
+|   │   └── `prompts.json` // contains "language" boolean
+│   ├── [framework-vue]
+|   │   ├── src
+|   |   │   └── index.js
+|   │   └── post.sh
+|   │   └── `prompts.json`
+│   ├── [framework-agnostic]
+│   └── `prompts.json` // contains "framework" option
+```
