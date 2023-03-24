@@ -13,6 +13,7 @@ gw createClientExtension theme-spritemap
 "Should this client extension in a shared container or it own?"
 
 >A default prompt for all client extensions asking if the client extension is going to be in its own container or a shared container. If it is a shared container, we would move it's client-extension.yaml to an existing one. If it is it's own container, we create a new yaml file.
+see "shared component" for reference [ce-cli](https://www.npmjs.com/package/ce-cli)
 
 **Template Structure:**
 - Uses the "prompts.json" to get user inputted values
