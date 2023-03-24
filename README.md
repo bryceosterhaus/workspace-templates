@@ -62,7 +62,7 @@ Technical Details:
 |   |   │   └── pre.sh
 |   │   ├── [language-typescript]
 |   |   │   └── src
-|   |   |   │   └── index.js
+|   |   |   │   └── index.ts
 |   |   │   └── pre.sh
 |   │   └── `prompts.json` // contains "language" boolean
 │   ├── [framework-vue]
