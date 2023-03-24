@@ -1,0 +1,15 @@
+assemble:
+    - from: build/static
+      into: static
+{{ name }}:
+    cssURLs:
+        - css/main.*.css
+    friendlyURLMapping: {{ name }}
+    htmlElementName: {{ name }}
+    instanceable: false
+    name: {{ name }}
+    portletCategoryName: category.client-extensions
+    type: customElement
+    urls:
+        - js/main.*.js
+    useESM: true

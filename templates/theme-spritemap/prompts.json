@@ -1,0 +1,12 @@
+[
+	{
+		"id": "name",
+		"prompt":"What is the name of your Theme Spritemap Client Extension?",
+		"type": "string"
+	},
+	{
+		"id": "extendClay",
+		"prompt": "Do you want to extend the original Clay spritemap?",
+		"type": "boolean"
+	}
+]

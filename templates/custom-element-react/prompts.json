@@ -1,0 +1,7 @@
+[
+	{
+		"id": "name",
+		"prompt":"What is the name of your React Custom Element Client Extension?",
+		"type": "string"
+	}
+]
