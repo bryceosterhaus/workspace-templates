@@ -73,3 +73,18 @@ Technical Details:
 │   ├── [framework-agnostic]
 │   └── `prompts.json` // contains "framework" option
 ```
+
+# Running Generator
+
+Install Node dependencies
+```sh
+cd ./generate-cli && npm i && cd ..
+```
+
+Running CLI
+
+```sh
+cd ./client-extensions
+
+node ../generate-cli/index.js [TEMPLATE_NAME]
+```
