@@ -1,6 +1,8 @@
 #!/bin/bash
 
-npx create-react-app ${PROMPTS_NAME}
+npx create-react-app@latest $PROMPTS_NAME
+
+cd $PROMPTS_NAME
 
 rm -f public/favicon.ico public/logo* public/manifest.json public/robots.txt
 
