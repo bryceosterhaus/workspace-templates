@@ -18,61 +18,25 @@ see "shared component" for reference [ce-cli](https://www.npmjs.com/package/ce-c
 
 **Template Structure:**
 - Uses the "prompts.json" to get user inputted values
-- Runs pre.sh script
+- Runs before-templating-process executable
 - Copies .hbs templating files to project
-- Runs post.sh script
+- Runs after-templating-process executable
 
 `prompts.json`
 Runs from top -> down
 
-```json
-[
-	{
-		"id": "name",
-		"prompt": "[question to ask the user]",
-		"type": "[string | boolean | options]",
-		"options": [] // used for selecting from a list of options,
-		"dependsOn": [] // Conditionally asks this question based on value of another question
-	}
-]
-```
+See [inquirer](https://www.npmjs.com/package/inquirer#questions) for prompt options for each question.
 
-`pre.sh / post.sh`
+
+`before-templating-process / after-templating-process`
 - User values provided as environment variables. `name` -> `PROMPTS_NAME`
 
-`*.hbs`
+`*.mustache`
 - Variables available as `name` -> `{{ name }}`
 
 Workflow for adding a new Template:
 - User could copy/paste existing template and then modify for their specific need. For example, copy/paste react template and then add jest config.
 - User could add an entirely new Template structure with their own prompts.
-
-Technical Details:
-- Doesn't matter what template language it is, so long as it is simple
-- Branching for a single template might be difficult, for example adding a js/ts prompt for a react custom element would require a lot of pre/post scripting.
-
-
-**Possible file structure for branching different options?**
-```
-├── custom-element
-│   ├── [framework-react]
-|   │   ├── [language-javascript]
-|   |   │   └── src
-|   |   |   │   └── index.js
-|   |   │   └── pre.sh
-|   │   ├── [language-typescript]
-|   |   │   └── src
-|   |   |   │   └── index.ts
-|   |   │   └── pre.sh
-|   │   └── `prompts.json` // contains "language" boolean
-│   ├── [framework-vue]
-|   │   ├── src
-|   |   │   └── index.js
-|   │   └── post.sh
-|   │   └── `prompts.json`
-│   ├── [framework-agnostic]
-│   └── `prompts.json` // contains "framework" option
-```
 
 # Running Generator
 
@@ -86,5 +50,5 @@ Running CLI
 ```sh
 cd ./client-extensions
 
-node ../generate-cli/index.js [TEMPLATE_NAME]
+node ../generate-cli/index.js [TEMPLATE_NAME] [DIRECTORY_NAME(optional)]
 ```
