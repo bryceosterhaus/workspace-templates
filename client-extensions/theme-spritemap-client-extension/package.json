@@ -2,7 +2,7 @@
 	"dependencies": {
 		"@liferay/dxp-7.4": "*"
 	},
-	"name": "theme-spritemap-client-extension:",
+	"name": "theme-spritemap-client-extension",
 	"scripts": {
 		"build": "liferay build",
 		"clean": "liferay clean",
