@@ -31,13 +31,20 @@ async function main() {
 
 	const answers = await inquirer.prompt(prompts);
 
-	answers.projectDir = PROJECT_DIRECTORY;
 	answers.nameKebabCase = kebabCase(answers.name);
 	answers.nameSnakeCase = camelToSnakeCase(answers.nameKebabCase);
 
-	const mustacheFiles = await glob(TEMPLATE_DIRECTORY + '/**/*.mustache', {
-		ignore: 'node_modules/**',
-	});
+	answers.projectDir = PROJECT_DIRECTORY || answers.nameKebabCase;
+
+	const mustacheFiles = await glob(
+		path.join(TEMPLATE_DIRECTORY, '**/*.mustache'),
+		{
+			dot: true,
+			ignore: 'node_modules/**',
+		}
+	);
+
+	console.log(mustacheFiles);
 
 	const preScriptPath = path.join(
 		TEMPLATE_DIRECTORY,
@@ -48,7 +55,7 @@ async function main() {
 		'after-templating-process'
 	);
 
-	const NEW_PROJECT_PATH = path.join(process.cwd(), PROJECT_DIRECTORY);
+	const NEW_PROJECT_PATH = path.join(process.cwd(), answers.projectDir);
 
 	if (fs.existsSync(NEW_PROJECT_PATH)) {
 		console.error('Project directory already exists');
