@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+
+
+const EXTENSION = process.env.PROMPTS_TYPESCRIPT ? '.js' : '.tsx'
+
+fs.rmSync(`./src/pages/HelloBar${EXTENSION}`);
+fs.rmSync(`./src/pages/HelloFoo${EXTENSION}`);
+fs.rmSync(`./src/pages/HelloWorld${EXTENSION}`);
+fs.rmSync(`./src/index${EXTENSION}`);

@@ -3,7 +3,13 @@
 const {spawnSync} = require('child_process');
 const fs = require('fs');
 
-const result = spawnSync('npx', ['create-react-app@latest', process.env.PROMPTS_NAME], {
+const result = spawnSync(
+	'npx',
+	[
+		'create-react-app@latest',
+		process.env.PROMPTS_NAME,
+		process.env.PROMPTS_TYPESCRIPT ? '--template typescript' : ''
+	], {
 	shell: true,
 	stdio: 'inherit',
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import {createRoot} from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 
 import HelloBar from './pages/HelloBar';
 import HelloFoo from './pages/HelloFoo';
@@ -7,7 +7,11 @@ import HelloWorld from './pages/HelloWorld';
 
 import './styles/index.scss';
 
-const App = ({route}) => {
+interface IProps {
+	route: string | null
+}
+
+const App: React.FC<IProps> = ({ route }) => {
 	if (route === 'hello-bar') {
 		return <HelloBar />;
 	}
@@ -24,16 +28,11 @@ const App = ({route}) => {
 };
 
 class WebComponent extends HTMLElement {
-	constructor() {
-		super();
-	}
-
 	connectedCallback() {
 		createRoot(this).render(
 			<App
 				route={this.getAttribute('route')}
-			/>,
-			this
+			/>
 		);
 	}
 }
