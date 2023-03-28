@@ -1,0 +1,7 @@
+assemble:
+    - from: build
+      into: static
+fds-cell-renderer-typescript:
+    name: FDS Cell Renderer Typescript
+    type: fdsCellRenderer
+    url: index.js
