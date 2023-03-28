@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+const {spawnSync} = require('child_process');
+const fs = require('fs');
+
+const result = spawnSync('npx', ['create-react-app@latest', process.env.PROMPTS_NAME], {
+	shell: true,
+	stdio: 'inherit',
+});
+
+if (result.status) {
+	process.exit(result.status);
+}
+
+process.chdir(process.env.PROMPTS_NAME);
+
+fs.rmSync('public/favicon.ico')
+fs.rmSync('public/logo*')
+fs.rmSync('public/manifest.json')
+fs.rmSync('public/robots.txt')
+
+fs.rmSync('src/App*')
+fs.rmSync('src/index*')
+fs.rmSync('src/logo.svg')
+fs.rmSync('src/reportWebVitals.js')
+fs.rmSync('src/setupTests.js')
+
+const contents = fs.readFileSync('public/index.html', 'utf-8');
+
+const replaced = contents.replace(
+	'<div id=\"root\"></div>',
+	`<${process.env.PROMPTS_NAME} route=\"hello-world\"></${process.env.PROMPTS_NAME}>`
+);
+
+fs.writeFileSync('public/index.html', replaced, 'utf-8');
