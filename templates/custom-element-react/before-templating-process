@@ -7,8 +7,8 @@ const result = spawnSync(
 	'npx',
 	[
 		'create-react-app@latest',
-		process.env.PROMPTS_NAME,
-		process.env.PROMPTS_TYPESCRIPT ? '--template typescript' : ''
+		process.env.PROMPTS_PROJECT_DIR,
+		process.env.PROMPTS_TYPESCRIPT === 'true' ? '--template typescript' : ''
 	], {
 	shell: true,
 	stdio: 'inherit',
@@ -18,7 +18,7 @@ if (result.status) {
 	process.exit(result.status);
 }
 
-process.chdir(process.env.PROMPTS_NAME);
+process.chdir(process.env.PROMPTS_PROJECT_DIR);
 
 fs.rmSync('public/favicon.ico')
 fs.rmSync('public/logo192.png')
@@ -32,7 +32,7 @@ const contents = fs.readFileSync('public/index.html', 'utf-8');
 
 const replaced = contents.replace(
 	'<div id=\"root\"></div>',
-	`<${process.env.PROMPTS_NAME} route=\"hello-world\"></${process.env.PROMPTS_NAME}>`
+	`<${process.env.PROMPTS_NAME_KEBAB_CASE} route=\"hello-world\"></${process.env.PROMPTS_NAME_KEBAB_CASE}>`
 );
 
 fs.writeFileSync('public/index.html', replaced, 'utf-8');

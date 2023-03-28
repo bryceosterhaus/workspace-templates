@@ -6,6 +6,7 @@ const {glob} = require('glob');
 const {spawn} = require('child_process');
 
 const TEMPLATE_TYPE = process.argv[2];
+const PROJECT_DIRECTORY = process.argv[3];
 
 const TEMPLATE_TYPES_DIRECTORY = path.join(__dirname, '..', 'templates');
 
@@ -30,6 +31,7 @@ async function main() {
 
 	const answers = await inquirer.prompt(prompts);
 
+	answers.projectDir = PROJECT_DIRECTORY;
 	answers.nameKebabCase = kebabCase(answers.name);
 	answers.nameSnakeCase = camelToSnakeCase(answers.nameKebabCase);
 
@@ -46,7 +48,7 @@ async function main() {
 		'after-templating-process'
 	);
 
-	const NEW_PROJECT_PATH = path.join(process.cwd(), answers.name);
+	const NEW_PROJECT_PATH = path.join(process.cwd(), PROJECT_DIRECTORY);
 
 	if (fs.existsSync(NEW_PROJECT_PATH)) {
 		console.error('Project directory already exists');
