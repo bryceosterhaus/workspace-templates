@@ -30,7 +30,8 @@ async function main() {
 
 	const answers = await inquirer.prompt(prompts);
 
-	answers.name = kebabCase(answers.name);
+	answers.nameKebabCase = kebabCase(answers.name);
+	answers.nameSnakeCase = camelToSnakeCase(answers.nameKebabCase);
 
 	const mustacheFiles = await glob(TEMPLATE_DIRECTORY + '/**/*.mustache', {
 		ignore: 'node_modules/**',

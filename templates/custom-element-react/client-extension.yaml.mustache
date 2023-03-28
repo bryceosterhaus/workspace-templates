@@ -1,11 +1,11 @@
 assemble:
     - from: build/static
       into: static
-{{ name }}:
+{{ nameKebabCase }}:
     cssURLs:
         - css/main.*.css
-    friendlyURLMapping: {{ name }}
-    htmlElementName: {{ name }}
+    friendlyURLMapping: {{ nameKebabCase }}
+    htmlElementName: {{ nameKebabCase }}
     instanceable: false
     name: {{ name }}
     portletCategoryName: category.client-extensions
