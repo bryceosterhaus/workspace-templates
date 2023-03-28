@@ -15,15 +15,12 @@ if (result.status) {
 process.chdir(process.env.PROMPTS_NAME);
 
 fs.rmSync('public/favicon.ico')
-fs.rmSync('public/logo*')
+fs.rmSync('public/logo192.png')
+fs.rmSync('public/logo512.png')
 fs.rmSync('public/manifest.json')
 fs.rmSync('public/robots.txt')
 
-fs.rmSync('src/App*')
-fs.rmSync('src/index*')
-fs.rmSync('src/logo.svg')
-fs.rmSync('src/reportWebVitals.js')
-fs.rmSync('src/setupTests.js')
+fs.rmSync('./src', {recursive: true});
 
 const contents = fs.readFileSync('public/index.html', 'utf-8');
 
