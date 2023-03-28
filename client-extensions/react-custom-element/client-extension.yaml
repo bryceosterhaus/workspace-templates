@@ -7,7 +7,7 @@ react-custom-element:
     friendlyURLMapping: react-custom-element
     htmlElementName: react-custom-element
     instanceable: false
-    name: react-custom-element
+    name: React Custom Element
     portletCategoryName: category.client-extensions
     type: customElement
     urls:

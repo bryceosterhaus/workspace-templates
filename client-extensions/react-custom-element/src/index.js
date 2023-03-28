@@ -1,9 +1,9 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 
-import HelloBar from './routes/hello-bar/pages/HelloBar';
-import HelloFoo from './routes/hello-foo/pages/HelloFoo';
-import HelloWorld from './routes/hello-world/pages/HelloWorld';
+import HelloBar from './pages/HelloBar';
+import HelloFoo from './pages/HelloFoo';
+import HelloWorld from './pages/HelloWorld';
 
 import './styles/index.scss';
 
