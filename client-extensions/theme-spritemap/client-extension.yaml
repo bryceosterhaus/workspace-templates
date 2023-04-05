@@ -1,7 +1,0 @@
-assemble:
-    - from: build/spritemap.svg
-      into: static
-theme-spritemap:
-    name: theme-spritemap
-    type: themeSpritemap
-    url: spritemap.svg 

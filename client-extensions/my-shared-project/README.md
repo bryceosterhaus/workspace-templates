@@ -1,1 +1,0 @@
-One caveat for this project is you need to individually run build for each projecy first
