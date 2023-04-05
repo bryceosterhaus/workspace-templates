@@ -85,17 +85,13 @@ async function main() {
 			type: 'input',
 		}, answers);
 
-		fs.mkdirSync(answers.sharedDir);
+		if (!fs.existsSync(answers.sharedDir)) {
+			fs.mkdirSync(answers.sharedDir);
+		}
 	}
 
 	const projectWorkspaceDir = path.join(process.cwd(), answers.sharedDir || '')
 	const newProjectPath = path.join(projectWorkspaceDir, answers.projectDir);
-
-	if (fs.existsSync(newProjectPath)) {
-		console.error('Project directory already exists');
-
-		return;
-	}
 
 	fs.mkdirSync(newProjectPath);
 
