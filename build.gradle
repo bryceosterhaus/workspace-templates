@@ -12,4 +12,6 @@ createClientExtension {
 	commandLine 'node', '../generate-cli/index.js'
 	standardInput System.in
 	workingDir './client-extensions'
+
+	finalizedBy "setUpYarn"
 }
