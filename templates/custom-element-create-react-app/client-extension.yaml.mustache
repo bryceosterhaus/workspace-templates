@@ -1,3 +1,10 @@
+{{#sharedContainer}}
+prepare:
+    - command: [yarn]
+      workingDir: {{nameKebabCase}}
+    - command: [yarn, build]
+      workingDir: {{nameKebabCase}}
+{{/sharedContainer}}
 assemble:
     {{#sharedContainer}}
     - from: {{ nameKebabCase }}/build/static
