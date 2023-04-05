@@ -1,0 +1,5 @@
+create-react-app-cx:
+    cssURLs:
+        - http://localhost:3000/css/main.*.css
+    urls:
+        - http://localhost:3000/js/main.*.js

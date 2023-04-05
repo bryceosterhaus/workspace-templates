@@ -1,0 +1,7 @@
+liferay-sample-fds-cell-renderer:
+  url: http://localhost:8082/index.js
+header-react-app:
+  cssURLs:
+    - http://localhost:8081/css/styles.css
+  urls:
+    - http://localhost:8081/index.js

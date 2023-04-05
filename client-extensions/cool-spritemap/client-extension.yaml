@@ -1,0 +1,7 @@
+assemble:
+    - from: build/spritemap.svg
+      into: static
+cool-spritemap:
+    name: cool-spritemap
+    type: themeSpritemap
+    url: spritemap.svg 

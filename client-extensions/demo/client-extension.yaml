@@ -1,0 +1,32 @@
+prepare:
+  - command: [yarn]
+    workingDir: liferay-sample-fds-cell-renderer
+  - command: [yarn, build]
+    workingDir: liferay-sample-fds-cell-renderer
+  - command: [yarn]
+    workingDir: header-react-app
+  - command: [yarn, build]
+    workingDir: header-react-app
+assemble:
+  - from: liferay-sample-fds-cell-renderer/build/index.js
+    into: static/liferay-sample-fds-cell-renderer
+  - from: header-react-app/build/css/styles.css
+    into: static/header-react-app
+  - from: header-react-app/build/index.js
+    into: static/header-react-app
+liferay-sample-fds-cell-renderer:
+  name: liferay-sample-fds-cell-renderer
+  type: fdsCellRenderer
+  url: liferay-sample-fds-cell-renderer/index.js
+header-react-app:
+  cssURLs:
+    - header-react-app/styles.css
+  friendlyURLMapping: header-react-app
+  htmlElementName: header-react-app
+  instanceable: false
+  name: header-react-app
+  portletCategoryName: category.client-extensions
+  type: customElement
+  urls:
+    - header-react-app/index.js
+  useESM: true

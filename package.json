@@ -2,6 +2,10 @@
     "private": true,
     "workspaces": {
         "packages": [
+            "client-extensions/demo/liferay-sample-fds-cell-renderer",
+            "client-extensions/demo/header-react-app",
+            "client-extensions/cool-spritemap",
+            "client-extensions/create-react-app-cx",
             "generate-cli"
         ]
     }

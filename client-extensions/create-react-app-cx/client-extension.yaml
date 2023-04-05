@@ -1,0 +1,15 @@
+assemble:
+    - from: build/static
+      into: static
+create-react-app-cx:
+    cssURLs:
+        - css/main.*.css
+    friendlyURLMapping: create-react-app-cx
+    htmlElementName: create-react-app-cx
+    instanceable: false
+    name: create-react-app-cx
+    portletCategoryName: category.client-extensions
+    type: customElement
+    urls:
+        - js/main.*.js
+    useESM: true
