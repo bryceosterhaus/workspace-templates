@@ -2,6 +2,8 @@
     "private": true,
     "workspaces": {
         "packages": [
+            "client-extensions/my-shared-project/custom-element-liferay-cli",
+            "client-extensions/my-shared-project/liferay-sample-fds-cell-renderer",
             "generate-cli"
         ]
     }
