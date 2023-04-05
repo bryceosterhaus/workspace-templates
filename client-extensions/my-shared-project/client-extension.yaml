@@ -1,0 +1,32 @@
+prepare:
+  - command: [yarn]
+    workingDir: custom-element-liferay-cli
+  - command: [yarn, build]
+    workingDir: custom-element-liferay-cli
+  - command: [yarn]
+    workingDir: liferay-sample-fds-cell-renderer
+  - command: [yarn, build]
+    workingDir: liferay-sample-fds-cell-renderer
+assemble:
+  - from: custom-element-liferay-cli/build/css/styles.css
+    into: static/custom-element-liferay-cli
+  - from: custom-element-liferay-cli/build/index.js
+    into: static/custom-element-liferay-cli
+  - from: liferay-sample-fds-cell-renderer/build/index.js
+    into: static/liferay-sample-fds-cell-renderer
+custom-element-liferay-cli:
+  cssURLs:
+    - custom-element-liferay-cli/styles.css
+  friendlyURLMapping: custom-element-liferay-cli
+  htmlElementName: custom-element-liferay-cli
+  instanceable: false
+  name: custom-element-liferay-cli
+  portletCategoryName: category.client-extensions
+  type: customElement
+  urls:
+    - custom-element-liferay-cli/index.js
+  useESM: true
+liferay-sample-fds-cell-renderer:
+  name: liferay-sample-fds-cell-renderer
+  type: fdsCellRenderer
+  url: liferay-sample-fds-cell-renderer/index.js
