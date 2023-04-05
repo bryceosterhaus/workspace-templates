@@ -21,10 +21,10 @@ assemble:
 {{ nameKebabCase }}:
     cssURLs:
         {{#sharedContainer}}
-        - {{ nameKebabCase }}/styles.css
+        - {{ nameKebabCase }}/css/styles.css
         {{/sharedContainer}}
         {{^sharedContainer}}
-        - styles.css
+        - /css/styles.css
         {{/sharedContainer}}
     friendlyURLMapping: {{ nameKebabCase }}
     htmlElementName: {{ nameKebabCase }}

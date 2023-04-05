@@ -1,0 +1,7 @@
+{{ nameKebabCase }}:
+    {{#sharedContainer}}
+    url: localhost:8081/{{ nameKebabCase }}/index.js 
+    {{/sharedContainer}}
+    {{^sharedContainer}}
+    url: localhost:8081/index.js 
+    {{/sharedContainer}}
