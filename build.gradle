@@ -5,8 +5,11 @@ createClientExtension {
 		if (gradle.startParameter.consoleOutput != ConsoleOutput.Plain) {
 			throw new StopExecutionException("This task requires plain console output. Please re-run with the '--console=plain' flag.")
 		}
+
+		new File('./client-extensions').mkdirs()
 	}
 
-	commandLine 'node', 'generate-cli/index.js'
+	commandLine 'node', '../generate-cli/index.js'
 	standardInput System.in
+	workingDir './client-extensions'
 }
