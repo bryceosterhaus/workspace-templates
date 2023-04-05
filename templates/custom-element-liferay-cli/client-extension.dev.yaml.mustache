@@ -1,15 +1,5 @@
 {{ nameKebabCase }}:
     cssURLs:
-        {{#sharedContainer}}
-        - http://localhost:8081{{ nameKebabCase }}/css/styles.css
-        {{/sharedContainer}}
-        {{^sharedContainer}}
         - http://localhost:8081/styles.css
-        {{/sharedContainer}}
     urls:
-        {{#sharedContainer}}
-        - http://localhost:8081{{ nameKebabCase }}/index.js
-        {{/sharedContainer}}
-        {{^sharedContainer}}
         - http://localhost:8081/index.js
-        {{/sharedContainer}}

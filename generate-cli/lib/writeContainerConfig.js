@@ -2,8 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
-function writeContainerConfig(configDir, projectConfigContent, projectName) {
-	const configPath = path.join(configDir, 'client-extension.yaml')
+function writeContainerConfig(configDir, projectConfigContent, projectName, dev) {
+	const name = dev ? 'client-extension.dev.yaml' : 'client-extension.yaml';
+	
+	const configPath = path.join(configDir, name)
 
 	let sharedYamlConfig = {assemble: [], prepare: []}
 
@@ -21,10 +23,12 @@ function writeContainerConfig(configDir, projectConfigContent, projectName) {
 	const {assemble, prepare, ...otherSharedConfig} = sharedYamlConfig
 
 	fs.writeFileSync(
-		configPath || 'client-extension.yaml',
+		configPath || name,
 		yaml.dump({
-			prepare: [...prepare, ...(projectYamlConfig.prepare || [])],
-			assemble: [...assemble, ...projectYamlConfig.assemble],
+			...(!dev ? {
+				prepare: [...prepare, ...(projectYamlConfig.prepare || [])],
+				assemble: [...assemble, ...(projectYamlConfig.assemble|| [])]}
+					: {}),
 			...otherSharedConfig,
 			[projectName]: projectYamlConfig[projectName]
 		},

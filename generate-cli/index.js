@@ -125,14 +125,17 @@ async function main() {
 
 		for (const mustacheFile of mustacheFiles) {
 
-			if (mustacheFile.includes('client-extension.yaml') && answers.sharedContainer) {
+			if (
+				(mustacheFile.includes('client-extension.yaml') || mustacheFile.includes('client-extension.dev.yaml'))
+					&& answers.sharedContainer) {
 				writeContainerConfig(
 					projectWorkspaceDir,
 					Mustache.render(
 						fs.readFileSync(mustacheFile, 'utf8'),
 						answers
 					),
-					answers.nameKebabCase
+					answers.nameKebabCase,
+					mustacheFile.includes('client-extension.dev.yaml')
 				)
 			} else {
 				writeTemplateFile(
